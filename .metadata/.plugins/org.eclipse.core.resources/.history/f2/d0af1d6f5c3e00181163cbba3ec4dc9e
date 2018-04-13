@@ -1,0 +1,31 @@
+package Asistente;
+
+public class Noticias {
+	
+	private int hora;
+	 
+	public Noticias(int hora) {
+		this.hora = hora;
+		}
+	
+	public int getHour() {
+		return this.hora;
+		}
+
+	
+	/*public String[] noticia = new String[3];
+
+		
+	private void mostrarNoticia()
+	{
+		noticia[0] = "flavio se cayo";
+		noticia[1] = "Trump Presidente";
+		noticia[2] = "fin del mundo";
+	 // si esque hora es igual a la de la noticia
+		// manda un print con la noticia
+		for(int i = 1; i <= 2; i = i + 1){
+		System.out.println(noticia[i]);
+		}
+	}*/
+}
+

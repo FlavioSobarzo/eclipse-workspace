@@ -1,0 +1,7 @@
+package ejemplo;
+
+	public Reloj(int pSeg){
+		frozen = false;
+		// le asignamos una tarea al timer
+		timer.schedule(new MiTarea(), 0, pSeg * 1000 * 60);
+	}

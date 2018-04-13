@@ -1,0 +1,27 @@
+package Asistente;
+import java.util.Scanner;
+import java.util.Date;
+
+public class Home {
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		boolean ocupado = false;
+		Date tiempo = new Date();
+		String nombre;
+		
+		System.out.println("¿Como te llamas?");
+		nombre = in.nextLine();
+		System.out.println("Bienvenido " + nombre);
+		
+		while (true) { 
+		double segundo = tiempo.getSeconds();
+	    int minuto = tiempo.getMinutes();
+	    double horaActual = minuto + segundo/100;
+	    System.out.println("minuto: " + minuto);
+	    System.out.println("segundo: " + segundo);
+	    System.out.println(horaActual);
+	    Noticias hora = new Noticias(horaActual,false);
+		}
+    }
+}

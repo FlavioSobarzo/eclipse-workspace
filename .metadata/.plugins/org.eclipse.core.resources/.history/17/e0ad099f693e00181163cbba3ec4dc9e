@@ -1,0 +1,9 @@
+package ejemplo;
+public class One {
+	public static void main(String[] args) {
+
+        int tiempo =0; 
+            Reloj object = new Reloj(tiempo);
+
+    }
+}

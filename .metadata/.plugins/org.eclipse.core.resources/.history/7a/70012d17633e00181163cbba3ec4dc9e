@@ -1,0 +1,7 @@
+package ejemplo;
+
+public class Two {
+	public Two() {
+        System.out.println("Ok "+One.name+", lets start!");
+    }
+}

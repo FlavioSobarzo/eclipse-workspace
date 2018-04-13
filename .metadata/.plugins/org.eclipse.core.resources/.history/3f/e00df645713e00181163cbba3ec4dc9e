@@ -1,0 +1,26 @@
+package Asistente;
+
+public class Noticias {
+	String[] listaDeNoticias = new String [3];
+	double[] listaDeHoras = new double [3];
+	boolean[] yaSeMostro = {false,false,false};
+
+	public Noticias(double s){
+		listaDeNoticias[0]="Fin del mundo";	
+		listaDeNoticias[1]="Guerra mundial";
+		listaDeNoticias[2]="Meteorito";
+		listaDeHoras[0]=47.40;	
+		listaDeHoras[1]=48.00;
+		listaDeHoras[2]=48.12;
+		for(int i = 0; i <= 2; i = i + 1){
+			if(s == listaDeHoras[i] && yaSeMostro[i] == false) {
+				 System.out.println(listaDeNoticias[i]);
+				 yaSeMostro[i] = true;
+			}
+		
+		}
+
+	}
+}
+
+

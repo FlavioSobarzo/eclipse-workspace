@@ -1,0 +1,14 @@
+package ejemplo;
+
+import java.util.Date;
+
+public class SystemDemo {
+	public static void main(String[] args) {
+
+
+	     Date tiempo = new Date();
+	     int segundos = tiempo.getMinutes();
+	      System.out.print("Current Time in milliseconds = ");
+	      System.out.println(segundos);
+	   }
+}

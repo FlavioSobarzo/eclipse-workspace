@@ -1,0 +1,28 @@
+package Asistente;
+
+public class Llamadas {
+	String[] listaDeLlamadas = new String [3];
+	double[] listaDeHoras = new double [3];
+	boolean[] yaSeMostro = {false,false,false};
+
+	public Llamadas(double hora, boolean ocupado){
+		listaDeLlamadas[0]="Flavio";	
+		listaDeLlamadas[1]="Camila";
+		listaDeLlamadas[2]="Catalina";
+		listaDeHoras[0]=0;	
+		listaDeHoras[1]=10;
+		listaDeHoras[2]=20;
+		for(int i = 0; i <= 2; i = i + 1){
+			double segundo = 1%listaDeHoras[i];
+			if(hora == listaDeHoras[i] && yaSeMostro[i] == false) {
+				if(ocupado==false) {
+					System.out.print("Nueva llamada ");
+					Mostrar llamada = new Mostrar(listaDeLlamadas[i], listaDeHoras[i]);
+					yaSeMostro[i] = true;
+				}
+			}
+		
+		}
+
+	}
+}

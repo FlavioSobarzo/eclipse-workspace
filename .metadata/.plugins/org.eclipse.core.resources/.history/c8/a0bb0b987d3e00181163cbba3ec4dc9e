@@ -1,0 +1,18 @@
+package Asistente;
+import java.util.Scanner;
+
+public class Ocupado {
+	
+	public Ocupado(boolean ocupado) {
+		int numero;
+		Scanner in = new Scanner(System.in);
+		
+		if(ocupado == false) {
+			System.out.println("Estas en modo OCUPADO");
+			System.out.println("Si quieres desactivar preciona el numero 1");
+			numero = in.nextInt();
+
+	}
+	
+}
+}

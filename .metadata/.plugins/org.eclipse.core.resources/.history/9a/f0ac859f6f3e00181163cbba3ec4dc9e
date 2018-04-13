@@ -1,0 +1,21 @@
+package Asistente;
+
+import java.util.Date;
+
+public class Home {
+	public static void main(String[] args) {
+
+		Date tiempo = new Date();
+	    int segundo = tiempo.getSeconds();
+	    int minuto = tiempo.getMinutes();
+	    double horaActual = minuto + segundo/100;
+	    System.out.print("Minuto = ");
+	    System.out.println(minuto);
+	    System.out.print("Segundo = ");
+	    System.out.println(segundo);
+	    System.out.print("hora actual = ");
+	    System.out.println(horaActual);
+	    Noticias hora = new Noticias(horaActual);
+
+    }
+}

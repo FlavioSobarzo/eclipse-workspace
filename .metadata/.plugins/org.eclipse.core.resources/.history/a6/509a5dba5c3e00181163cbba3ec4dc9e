@@ -1,0 +1,11 @@
+package Asistente;
+
+public class Home {
+
+	public static void main(String[] args) {
+		Noticias hora = new Noticias(11);
+		Noticias.getHour();
+		System.out.println(hora.hora);
+	}
+
+}

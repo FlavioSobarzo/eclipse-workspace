@@ -1,0 +1,24 @@
+package Asistente;
+
+public class Noticias {
+	String[] listaDeNoticias = new String [3];
+	int[] listaDeHoras = new int[3];
+	
+	public Noticias(int  s){
+		listaDeNoticias[0]="Fin del mundo";	
+		listaDeNoticias[1]="Guerra mundial";
+		listaDeNoticias[2]="Meteorito";
+		listaDeHoras[0]=1;	
+		listaDeHoras[1]=2;
+		listaDeHoras[2]=3;
+		for(int i = 0; i <= 2; i = i + 1){
+			if(s == listaDeHoras[i]) {
+				 System.out.println(listaDeNoticias[i]);
+			}
+		
+		}
+
+	}
+}
+
+

@@ -1,0 +1,9 @@
+package ejemplo;
+
+public class Two {
+	public Two(String  s){
+
+	    System.out.println("Ok "+s+", lets start!");
+
+	}
+}

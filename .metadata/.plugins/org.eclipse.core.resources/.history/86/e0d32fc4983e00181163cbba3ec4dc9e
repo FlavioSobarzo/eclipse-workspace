@@ -1,0 +1,13 @@
+package ejemplo;
+
+public class Two {
+	public static void main(String[] args) {
+		
+		char a = 'a';
+		char b = 'b';
+		int c = a;
+		int d =b; 
+		System.out.println(c);
+		System.out.println(d);
+	}
+}

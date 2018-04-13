@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Gambler {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int stake = 10;
+		int goal = 15;
+		int trials = 5;
+		int vecesQueAcierta = 0;
+		int vecesQueFalla = 0;
+		for(int i = 1; i <= trials; i = i + 1){
+			if(turno()) {
+				stake = stake + 1;
+				vecesQueAcierta = vecesQueAcierta +1;
+			}
+			else {
+				stake = stake - 1;
+				vecesQueFalla = vecesQueFalla +1;
+			}
+		}
+		System.out.println("Acerto " + vecesQueAcierta + " y fallo " + vecesQueFalla + " de "+ trials + " intentos");
+	}
+	public static boolean turno() {
+		double numeroAleatorio =  Math.random();
+	       if(numeroAleatorio <= 0.5) {
+	    	  return true;
+	       }
+	       else {
+	    	   return false;
+	       }
+	    	  
+	}
+
+}
