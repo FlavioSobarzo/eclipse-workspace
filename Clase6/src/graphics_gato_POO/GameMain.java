@@ -3,6 +3,11 @@ package graphics_gato_POO;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import java.io.IOException;
+import java.net.URL;
+import javax.sound.sampled.*;
+
 /**
  * Two-player Graphic version with better OO design.
  * The Board and Cell classes are separated in their own classes.
@@ -26,24 +31,68 @@ public class GameMain extends JPanel {
    public static final int SYMBOL_STROKE_WIDTH = 8; // pen's stroke width
  
    private Board board;            // the game board
-   private GamaState currentState; // the current state of the game
+   private GameState currentState; // the current state of the game
    private Seed currentPlayer;     // the current player
    private JLabel statusBar;       // for displaying status message
+   
+   
+// Declare the following variables for the sound clips in the main class
+String fileMove = "sounds/move.wav";         // audio filename for move effect
+String fileGameOver = "sounds/gameover.wav"; // audio filename for game-over effect
+Clip soundClipMove;      // Sound clip for move effect
+Clip soundClipGameOver;  // Sound clip for game-over effect
+ 
  
    /** Constructor to setup the UI and game components */
    public GameMain() {
  
+	   try {
+		   URL url = this.getClass().getClassLoader().getResource(fileGameOver);
+		   if (url == null) {
+		      System.err.println("Couldn't find file: " + fileGameOver);
+		   } else {
+		      AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+		      soundClipGameOver = AudioSystem.getClip();
+		      soundClipGameOver.open(audioIn);
+		   }
+		       
+		   url = this.getClass().getClassLoader().getResource(fileMove);
+		   if (url == null) {
+		      System.err.println("Couldn't find file: " + fileMove);
+		   } else {
+		      AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+		      soundClipMove = AudioSystem.getClip();
+		      soundClipMove.open(audioIn);
+		   }
+		} catch (UnsupportedAudioFileException e) {
+		   System.err.println("Audio Format not supported!");
+		} catch (Exception e) {
+		   e.printStackTrace();
+		}
+		 
+	   
       // This JPanel fires MouseEvent
       this.addMouseListener(new MouseAdapter() {
          @Override
          public void mouseClicked(MouseEvent e) {  // mouse-clicked handler
+        	 
+        	 if (currentState == GameState.PLAYING) {
+        		   if (soundClipMove.isRunning()) soundClipMove.stop();
+        		   soundClipMove.setFramePosition(0); // rewind to the beginning
+        		   soundClipMove.start();             // Start playing
+        		} else {
+        		   if (soundClipGameOver.isRunning()) soundClipGameOver.stop();
+        		   soundClipGameOver.setFramePosition(0); // rewind to the beginning
+        		   soundClipGameOver.start();             // Start playing
+        		}
+        	 
             int mouseX = e.getX();
             int mouseY = e.getY();
             // Get the row and column clicked
             int rowSelected = mouseY / CELL_SIZE;
             int colSelected = mouseX / CELL_SIZE;
  
-            if (currentState == GamaState.PLAYING) {
+            if (currentState == GameState.PLAYING) {
                if (rowSelected >= 0 && rowSelected < ROWS
                      && colSelected >= 0 && colSelected < COLS
                      && board.cells[rowSelected][colSelected].content == Seed.EMPTY) {
@@ -83,16 +132,16 @@ public class GameMain extends JPanel {
             board.cells[row][col].content = Seed.EMPTY; // all cells empty
          }
       }
-      currentState = GamaState.PLAYING;  // ready to play
+      currentState = GameState.PLAYING;  // ready to play
       currentPlayer = Seed.CROSS;        // cross plays first
    }
  
    /** Update the currentState after the player with "theSeed" has placed on (row, col) */
    public void updateGame(Seed theSeed, int row, int col) {
       if (board.hasWon(theSeed, row, col)) {  // check for win
-         currentState = (theSeed == Seed.CROSS) ? GamaState.CROSS_WON : GamaState.NOUGHT_WON;
+         currentState = (theSeed == Seed.CROSS) ? GameState.CROSS_WON : GameState.NOUGHT_WON;
       } else if (board.isDraw()) {  // check for draw
-         currentState = GamaState.DRAW;
+         currentState = GameState.DRAW;
       }
       // Otherwise, no change to current state (PLAYING).
    }
@@ -106,20 +155,20 @@ public class GameMain extends JPanel {
       board.paint(g);  // ask the game board to paint itself
  
       // Print status-bar message
-      if (currentState == GamaState.PLAYING) {
+      if (currentState == GameState.PLAYING) {
          statusBar.setForeground(Color.BLACK);
          if (currentPlayer == Seed.CROSS) {
             statusBar.setText("X's Turn");
          } else {
             statusBar.setText("O's Turn");
          }
-      } else if (currentState == GamaState.DRAW) {
+      } else if (currentState == GameState.DRAW) {
          statusBar.setForeground(Color.RED);
          statusBar.setText("It's a Draw! Click to play again.");
-      } else if (currentState == GamaState.CROSS_WON) {
+      } else if (currentState == GameState.CROSS_WON) {
          statusBar.setForeground(Color.RED);
          statusBar.setText("'X' Won! Click to play again.");
-      } else if (currentState == GamaState.NOUGHT_WON) {
+      } else if (currentState == GameState.NOUGHT_WON) {
          statusBar.setForeground(Color.RED);
          statusBar.setText("'O' Won! Click to play again.");
       }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Capitulo 9/src/respuesta.java"/>
+<listEntry value="/ThinkJava/src/Capitulo9/respuesta.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="respuesta"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Capitulo 9"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Capitulo9.respuesta"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ThinkJava"/>
 </launchConfiguration>
