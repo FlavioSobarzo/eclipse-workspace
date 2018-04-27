@@ -1,9 +1,0 @@
-package Asistente;
-
-public class Home {
-
-	public static void main(String[] args) {
-		Noticias hora = new Noticias(1);
-	}
-
-}

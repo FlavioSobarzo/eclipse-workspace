@@ -1,7 +1,0 @@
-package ejemplo;
-
-public class segundos {
-	Date startDate = new Date();
-	Date endDate = new Date();
-	int numSeconds = (int)((endDate.getTime() - startDate.getTime()) / 1000);
-}

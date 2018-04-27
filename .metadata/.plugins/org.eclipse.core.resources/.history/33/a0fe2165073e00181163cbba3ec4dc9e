@@ -1,5 +1,0 @@
-
-public class Llamadas {
-String[] llamadas = new String[3];
-llamadas[0] = "Vertigo tiene una nueva temporada";
-}
