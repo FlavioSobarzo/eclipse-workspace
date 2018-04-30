@@ -21,7 +21,9 @@ import javax.swing.WindowConstants;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+//  cambiar a arraylist *ver bien los ojetos
+// como asistente llamada noticia tarea listallamada  
+// no confundir funciones con clases
 public class Home implements Runnable{
 	
 	public static Scanner in = new Scanner(System.in);
