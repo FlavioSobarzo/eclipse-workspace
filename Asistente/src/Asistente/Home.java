@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -32,6 +33,7 @@ public class Home implements Runnable{
 	private Popup popup;
 	public static JFrame frame = new JFrame("FrameDemo");
 	public static String[] GuardarLlamada = new String [20];
+	private JCheckBox chckbxNewCheckBox;
 	//static String[] GuardarNoticias = new String [20];
 	//static int minuto=0; //Por ahora no lo uso
 	
@@ -90,7 +92,17 @@ public class Home implements Runnable{
 	        });
 	        frame.add(panel);
 	        frame.setSize(800, 400);
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        chckbxNewCheckBox = new JCheckBox("Modo ocupado");
+			frame.getContentPane().add(chckbxNewCheckBox, BorderLayout.SOUTH);
+			if(chckbxNewCheckBox.isSelected() == false) {
+				ocupado = false;
+        		System.out.println("Modo ocupado desactivado ");
+			}
+			if(chckbxNewCheckBox.isSelected() == true) {
+				ocupado = true;
+        		System.out.println("Modo ocupado activo ");
+			}
 	        frame.setLocationRelativeTo(null);
 	        frame.setVisible(true);
 	    }
