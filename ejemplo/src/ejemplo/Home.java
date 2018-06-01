@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Home {
 
@@ -46,6 +48,13 @@ public class Home {
 		
 		chckbxNewCheckBox = new JCheckBox("Modo ocupado");
 		frame.getContentPane().add(chckbxNewCheckBox, BorderLayout.SOUTH);
+		
+		JButton btnNewButton = new JButton("Modo ocupado");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		frame.getContentPane().add(btnNewButton, BorderLayout.EAST);
 		if(chckbxNewCheckBox.isSelected() == true) {
 			
 		}
