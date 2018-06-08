@@ -29,7 +29,7 @@ public class Home implements Runnable{
 	
 	public static Scanner in = new Scanner(System.in);
 	public static boolean ocupado = false; //si esta false es porque el modo ocupado no esta activo
-	public static double segundo =0;;
+	public static double segundo =0;
 	private Popup popup;
 	public static JFrame frame = new JFrame("FrameDemo");
 	public static String[] GuardarLlamada = new String [20];

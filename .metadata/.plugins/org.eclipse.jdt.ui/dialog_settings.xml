@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<item value="filter_imports;" key="filters_last_used"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
 		<item value="false" key="updateSimilarElements"/>
@@ -54,21 +55,21 @@
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;" key="History"/>
 	</section>
 	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
+		<item value="630" key="width"/>
 		<item value="400" key="height"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="9" key="index"/>
+		<item value="5" key="index"/>
 	</section>
 	<section name="quick_assist_proposal_size">
-		<item value="315" key="size.y"/>
+		<item value="1087" key="size.y"/>
 		<item value="445" key="size.x"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

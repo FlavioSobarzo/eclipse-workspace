@@ -12,4 +12,15 @@ public class Llamada {
 		this.hora = hora;
 	}
 
+	public int getHora() {
+		return this.hora;
+	}
+	
+	public String getContacto() {
+		return this.contacto;
+	}
+	
+	public int getNumero() {
+		return this.numero;
+	}
 }

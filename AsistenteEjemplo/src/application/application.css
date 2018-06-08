@@ -2,20 +2,35 @@
 
 /* Para cambiar la ventana */
 .root{
-	-fx-spacing: 30;
+	-fx-spacing: 6;
 	-fx-background-color:#BDBDBD;
 	-fx-padding: 10;
 }
 
-/* Para cambiar el Label
+/*  Para cambiar el Label*/
 .my_customLabel {
 	-fx-font-size: 20px;
 	-fx-font-weight: bold;
 }
-*/
+
+.my_modoOcupadoDesactivado{
+	-fx-font-family: "Arial";
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(#B0E0E6 , #4169E1);
+	-fx-text-fill: #383640;
+	}
+	
+.my_modoOcupadoActivado{
+	-fx-font-family: "Arial";
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+	-fx-background-color: linear-gradient(#FF0000, #FF4500);
+	-fx-text-fill: #383640;
+	}
 
 /* Para cambiar el boton  */
-.button{
+.my_btn{
 	-fx-font-family: "Arial";
 	-fx-font-size: 20px;
 	-fx-font-weight: bold;
@@ -23,8 +38,8 @@
 	-fx-text-fill: #383640;
 	}
 	
-/* Para cambiar el boton cuando esta el mouse encima */
-.button:hover{
+/* -Para cambiar el boton cuando esta el mouse encima */
+.my_btn:hover{
 	-fx-background-color: linear-gradient(#61a2b1, #9EA7E5);
 	-fx-text-fill: #ffffff;
 }
