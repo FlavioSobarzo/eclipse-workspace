@@ -38,7 +38,7 @@ public class Test {
         System.out.println("Testing insertion...");
         deck = new Deck();
         deck.shuffle();
-        deck.insertionSort();
+      //  deck.insertionSort();
         checkSorted(deck);
     }
 

@@ -32,4 +32,5 @@
 <fullyQualifiedTypeName name="javafx.scene.layout.BorderPane"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.HBox"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

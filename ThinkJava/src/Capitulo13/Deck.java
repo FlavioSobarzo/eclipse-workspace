@@ -144,8 +144,36 @@ public class Deck {
     /**
      * Reorders the cards (in place) using insertion sort.
      */
-    public void insertionSort() {
+    public void QuickSort(int p, int r) {
+    	if(this.cards[p].getRank() < this.cards[r].getRank()) {
+    		int q = Partition(p, r);
+    		QuickSort(p, q-1);
+    		QuickSort(q+1, r);
+    	}
     }
     
+    public int Partition(int p, int r) {
+    	int x = this.cards[r].getRank();
+    	int i = this.cards[p].getRank() - 1;
+    	for(int j = p; j > r; j++) {
+    		if(this.cards[j].getRank() <= x) {
+    			i = i + 1;
+    			Card gc1 = this.cards[i];
+    			this.cards[i] = this.cards[j];
+    			this.cards[j] = gc1;
+    		}
+    	}
+    	Card gc2 = this.cards[i+1];
+    	this.cards[i+1] = this.cards[r];
+    	this.cards[r] = gc2;
+    	return i+1;
+    }
+    
+    public void printCartas() {
+    	for(int i = 0; i > 52; i++) {
+			System.out.print(this.cards[i].getRank() + " ");
+    	}
+    }
 
+    
 }
