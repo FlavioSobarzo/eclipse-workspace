@@ -6,15 +6,17 @@ public class Llamada {
 	private int numero;
 	private int hora;
 	private int minuto;
+	private int seg;
 	private int dia;
 	private int mes;
 	private int año;
 	
-	public Llamada(String contacto, int numero, int hora, int minuto, int dia, int mes, int año) {
+	public Llamada(String contacto, int numero, int hora, int minuto, int seg, int dia, int mes, int año) {
 		this.contacto = contacto;
 		this.numero = numero;
 		this.hora = hora;
 		this.minuto = minuto;
+		this.seg = seg;
 		this.dia = dia;
 		this.mes = mes;
 		this.año = año;
@@ -26,6 +28,10 @@ public class Llamada {
 	
 	public int getMin() {
 		return this.minuto;
+	}
+	
+	public int getSeg() {
+		return this.seg;
 	}
 	
 	public int getDia() {

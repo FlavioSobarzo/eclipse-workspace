@@ -55,7 +55,8 @@ public class Asistente extends Application{
 	Button modoOcupado;
 	Label lb_text7;
 	static ArrayList<Label> eventosProx = new ArrayList<Label>();
-	static int h =13;
+	static int h =16;
+	static int m = 15;
 	int eventoOcurriendo = -1;
 	boolean nuevoEvento = false;
 	ArrayList<Integer> tiempoRestante = new ArrayList<Integer>();
@@ -87,13 +88,19 @@ public class Asistente extends Application{
 		for(int i =0; i < 20; i++) {
 		eventosProx.add(new Label(""));
 		}
-		llamadas.add( new Llamada("Flavio", 57282036, h, 57, 22, 6, 2018) );
-		llamadas.add( new Llamada("Cristian", 76439764, h, 58, 22, 6, 2018) );
-		llamadas.add( new Llamada("Catalina", 45628988, h,56, 22, 6, 2018) );
-		noticias.add( new Noticia("Las 7 lucas del confort", "Porfin van a pagarnos los 7 mil pesos de la colucion del confort", h, 58, 22, 6, 2018) );
-		noticias.add( new Noticia("Frutilla con superpoderes", "Una solucion en base a una hormona vegetal optimiza todo el proceso de maduracion de la frutilla", h, 55, 22, 6, 2018) );
-		noticias.add( new Noticia("Stan Lee en peligro", "Dos tipos armados se metieron en la casa de Stan Lee", h, 56, 22, 6, 2018) );
-		
+		llamadas.add( new Llamada("Flavio", 57282036, h, m, 10, 22, 6, 2018) );
+		llamadas.add( new Llamada("Cristian", 76439764, h, m, 20, 22,  6, 2018) );
+		llamadas.add( new Llamada("Catalina", 45628988, h, m,30 ,22, 6, 2018) );
+		llamadas.add( new Llamada("Flavio", 57282036, h, m+1, 20 , 22, 6, 2018) );
+		llamadas.add( new Llamada("Cristian", 76439764, h, m+1, 10, 22, 6, 2018) );
+		llamadas.add( new Llamada("Catalina", 45628988, h,m+1, 40, 22, 6, 2018) );
+		llamadas.add( new Llamada("Flavio", 57282036, h, m+2, 10, 22, 6, 2018) );
+		noticias.add( new Noticia("Las 7 lucas del confort", "Porfin van a pagarnos los 7 mil pesos de la colucion del confort", h, m, 10, 22, 6, 2018) );
+		noticias.add( new Noticia("Frutilla con superpoderes", "Una solucion en base a una hormona vegetal optimiza todo el proceso de maduracion de la frutilla", h, m, 40, 22, 6, 2018) );
+		noticias.add( new Noticia("Stan Lee en peligro", "Dos tipos armados se metieron en la casa de Stan Lee", h, m+1, 10, 22, 6, 2018) );
+		noticias.add( new Noticia("Las 7 lucas del confort", "Porfin van a pagarnos los 7 mil pesos de la colucion del confort", h, m+1, 0, 22, 6, 2018) );
+		noticias.add( new Noticia("Frutilla con superpoderes", "Una solucion en base a una hormona vegetal optimiza todo el proceso de maduracion de la frutilla", h, m+2, 0, 22, 6, 2018) );
+		noticias.add( new Noticia("Stan Lee en peligro", "Dos tipos armados se metieron en la casa de Stan Lee", h, m+1, 45, 22, 6, 2018) );
 		launch(args);
 	}
 
@@ -102,9 +109,9 @@ public class Asistente extends Application{
 			
 			modoOcupado = new Button("Modo ocupado desactivado");
 		
-			lb_text1 = new Label("Ultimas Llamada:");
+			lb_text1 = new Label("Ultima Llamada:");
 			llamadaEntrante = new Label(" ");
-			lb_text2 = new Label("Ultimas Noticia:");
+			lb_text2 = new Label("Ultima Noticia:");
 			noticiaEntrante = new Label(" ");
 			segundos = new Label(" ");
 			
@@ -245,7 +252,7 @@ public class Asistente extends Application{
 			//System.out.println(String.valueOf(segundo));
 		
 			Timeline timeline = new Timeline(
-				new KeyFrame(Duration.seconds(10),
+				new KeyFrame(Duration.seconds(0),
 						new EventHandler<ActionEvent>() {
 					     	@Override 
 					        public void handle(ActionEvent actionEvent) {
@@ -257,12 +264,12 @@ public class Asistente extends Application{
 						    	int mesR = tiempo.getMonth() + 1;
 						    	int añoR = tiempo.getYear() + 2000 - 100;
 						    	
-								segundos.setText(String.valueOf(horaR) + ":" + String.valueOf(minR) + "  " + String.valueOf(diaR) + "/" + String.valueOf(mesR) + "/" + String.valueOf(añoR));
+								segundos.setText(String.valueOf(horaR) + ":" + String.valueOf(minR) + ":" + String.valueOf(segundo) + "  " + String.valueOf(diaR) + "/" + String.valueOf(mesR) + "/" + String.valueOf(añoR));
 								//System.out.println(String.valueOf(segundo));
 							
 								for(int i = 0; i < llamadas.size(); i++) {
 										
-									if(minR == llamadas.get(i).getMin() && horaR == llamadas.get(i).getHora() && diaR == llamadas.get(i).getDia() && mesR == llamadas.get(i).getMes() && añoR == llamadas.get(i).getAño() ) {
+									if(minR == llamadas.get(i).getMin() && horaR == llamadas.get(i).getHora() && diaR == llamadas.get(i).getDia() && mesR == llamadas.get(i).getMes() && añoR == llamadas.get(i).getAño() && segundo == llamadas.get(i).getSeg()) {
 										if(ocupado == false) {
 											llamadaEntrante.setText(llamadas.get(i).getContacto() + " ha llamado");
 											System.out.println(llamadas.get(i).getContacto() + " ha llamado");
@@ -276,7 +283,7 @@ public class Asistente extends Application{
 									}
 								}
 								for(int i = 0; i < noticias.size(); i++) {
-									if(horaR == noticias.get(i).getHora() && minR == noticias.get(i).getMin() && diaR == noticias.get(i).getDia() && mesR == noticias.get(i).getMes() && añoR == noticias.get(i).getAño()) {
+									if(horaR == noticias.get(i).getHora() && minR == noticias.get(i).getMin() && diaR == noticias.get(i).getDia() && mesR == noticias.get(i).getMes() && añoR == noticias.get(i).getAño() && segundo == noticias.get(i).getSeg()) {
 										if(ocupado == false) {
 											noticiaEntrante.setText(noticias.get(i).getTitulo() + ". " + noticias.get(i).getEncabezado());
 											System.out.println(noticias.get(i).getTitulo() + ". " + noticias.get(i).getEncabezado());
