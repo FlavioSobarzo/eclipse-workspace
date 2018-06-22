@@ -55,8 +55,8 @@ public class Asistente extends Application{
 	Button modoOcupado;
 	Label lb_text7;
 	static ArrayList<Label> eventosProx = new ArrayList<Label>();
-	static int h =16;
-	static int m = 15;
+	static int h; // PONER LA HORA QUE QUIERE PROBAR
+	static int m; //PONER EL MIN
 	int eventoOcurriendo = -1;
 	boolean nuevoEvento = false;
 	ArrayList<Integer> tiempoRestante = new ArrayList<Integer>();
@@ -85,8 +85,11 @@ public class Asistente extends Application{
 	
 	public static void main(String[] args) {
 		
+		Date time = new Date();
 		for(int i =0; i < 20; i++) {
 		eventosProx.add(new Label(""));
+		h = time.getHours();
+		m = time.getMinutes();
 		}
 		llamadas.add( new Llamada("Flavio", 57282036, h, m, 10, 22, 6, 2018) );
 		llamadas.add( new Llamada("Cristian", 76439764, h, m, 20, 22,  6, 2018) );
